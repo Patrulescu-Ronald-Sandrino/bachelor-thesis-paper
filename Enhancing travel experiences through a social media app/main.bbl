@@ -1,0 +1,50 @@
+\begin{thebibliography}{{Moz}b}
+
+\bibitem[BLF99]{Berners1999}
+T.~Berners-Lee and M.~Fischetti.
+\newblock {\em Weaving the Web: The Original Design and Ultimate Destiny of the
+  World Wide Web by its inventor}.
+\newblock Harper, USA, 1th edition, 1999.
+
+\bibitem[CK74]{Cerf1974}
+V.~Cerf and R.~Kahn.
+\newblock A protocol for packet network intercommunication.
+\newblock {\em IEEE Transactions on Communications}, 20(3), 1974.
+
+\bibitem[kin]{kinaSUR}
+
+
+\bibitem[mas]{mastersthesis1993}
+Master's thesis.
+
+\bibitem[{Moz}a]{mozillaCSS}
+{Mozilla Developer Network}.
+\newblock {CSS: Cascading Style Sheets}.
+\newblock \url{https://developer.mozilla.org/en-US/docs/Web/CSS}.
+\newblock Online; accessed 15 March 2023.
+
+\bibitem[{Moz}b]{mozillaHTML}
+{Mozilla Developer Network}.
+\newblock {HTML: HyperText Markup Language}.
+\newblock \url{https://developer.mozilla.org/en-US/docs/Web/HTML}.
+\newblock Online; accessed 15 March 2023.
+
+\bibitem[{Moz}c]{mozillaJS}
+{Mozilla Developer Network}.
+\newblock {JavaScript}.
+\newblock \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript}.
+\newblock Online; accessed 15 March 2023.
+
+\bibitem[Nar]{Narayan2012}
+
+
+\bibitem[phd]{phdthesis1993}
+PhD thesis.
+
+\bibitem[Rob]{Robbes2015}
+
+
+\bibitem[Som]{Sommerville2010}
+
+
+\end{thebibliography}
