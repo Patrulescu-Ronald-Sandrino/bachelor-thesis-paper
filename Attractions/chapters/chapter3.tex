@@ -35,9 +35,9 @@
 
 \par \textbf{Relationships}: EF Core allows you to define relationships between entities, such as one-to-one, one-to-many, and many-to-many relationships. These relationships are represented using navigation properties and are enforced through foreign keys in the database.
 
-\subsection{Frontend}
+\section{Frontend}
 
-\subsubsection{React}
+\subsection{React}
 
 \par React is an open-source front-end JavaScript library released in 2013 by Meta (formerly Facebook). Back in 2011, the developers at Facebook started to face some issues with code maintenance. Which was caused by the increase in app features combined with cascading updates. The solution they arrived at is React. \cite{reactHistory} React does things by breaking down the UI into reusable components. This component-based architecture allows to build complex user interfaces by composing small, isolated pieces of code that manage their own state and logic. Key concepts:
 
@@ -58,7 +58,7 @@
 
 \par \textbf{Virtual DOM} In case of big pages, re-rendering can become an expensive operation. That's why react uses a virtual DOM, which is a copy of the real DOM. When the state of a component changes, a snapshot of its current virtual DOM is saved, then the virtual DOM is modified and compared with the snapshot and only then, the real DOM is changed based on the difference between the initial and the modified virtual DOM.
 
-\subsubsection{TypeScript}
+\subsection{TypeScript}
 
 \par TypeScript is a strongly typed, compiled programming language that builds on JavaScript, one of the most widely used languages for web development. Developed and maintained by Microsoft, TypeScript introduces static typing to JavaScript, along with other features aimed at improving developer productivity and code maintainability. It has rapidly gained popularity in the web development community and is commonly used in conjunction with frameworks such as Angular, React, and Vue.js.
 
@@ -70,7 +70,7 @@
 
 \par Using TypeScript comes with the advantage of strong typing, but the disadvantages are: the learning curve, the compilation step - converting the TypeScript code to JavaScript, which adds an extra layer of complexity to the development workflow and the dependency management.
 
-\subsubsection{Redux}
+\subsection{Redux}
 
 \par Redux is an open-source JavaScript library for managing and centralizing application state. In React, centralized state management can be achieved to some degree using the \textit{useContext} feature. But, for medium to large-sized codebases with large amounts of application state and frequent and complex update logic, that might become too complex to maintain. Redux uses a single source of truth which contains read-only state that can only be modified through pure functions called reducers. The core components of Redux are the following:
 
@@ -90,7 +90,7 @@
     \label{fig:redux-flow}
 \end{figure}
 
-\subsubsection{Material UI}
+\subsection{Material UI}
 
 \par Material UI (often abbreviated as MUI) is an open-source library that provides React components implementing Google's Material Design principles. Material Design is a design language developed by Google that emphasizes simplicity, consistency, and usability. Material-UI offers a comprehensive set of components and tools that help developers build aesthetically pleasing, responsive, and accessible user interfaces for web applications. Material UI provides various components like custom inputs, custom buttons, avatars, cards, dialogs, app bars, floating action buttons. Besides, it provides a powerful theming system that allows the customization of the appearance of components globally across the application, responsiveness through breakpoints and grids. It also includes a comprehensive set of Material Design icons that can be easily integrated into components. Icons are provided as React components and can be customized in terms of size, color, and other properties.
 
