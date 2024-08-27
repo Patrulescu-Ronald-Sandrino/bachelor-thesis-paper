@@ -169,32 +169,32 @@
 
 \subsection{ORM Mapping}
 
-\par Entity Framework was used to map the domain classes to the database tables. In order to achieve that, the domain classes have to be used as type parameters for fields of type DbSet inside a class that inherits from the framework's class DbContext. In this case the class is IdentityDbContext because it offers user management features and it is also a descendant of the DbContext class. This IdentityDbContext class takes as type parameters a class used for mapping the user, a class used for mapping the user role and the type of the primary key used for those two.
+\par Entity Framework was used to map the domain classes to the database tables. In order to achieve that, the domain classes have to be used as type parameters for fields of type \textit{DbSet} inside a class that inherits from the framework's class \textit{DbContext}. In this case the class is \textit{IdentityDbContext} because it offers user management features and it is also a descendant of the \textit{DbContext} class. This \textit{IdentityDbContext} class takes as type parameters a class used for mapping the user, a class used for mapping the user role and the type of the primary key used for those two.
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\linewidth]{4.3.1_dataContext.png}
-    \caption{DataContext class' fields}
+    \caption{\textit{DataContext} class' fields}
     \label{fig:enter-label}
 \end{figure}
 
-\par The to be generated tables can be further configured by overriding the OnModelCreating method of the DataContext class. There you can define more complex primary keys, foreign keys, delete behaviors, unique indexes, check constraints, conversions, etc.
+\par The to be generated tables can be further configured by overriding the \textit{OnModelCreating} method of the \textit{DataContext} class. There you can define more complex primary keys, foreign keys, delete behaviors, unique indexes, check constraints, conversions, etc.
 
 \clearpage % https://www.overleaf.com/learn/latex/Questions/How_can_I_get_my_table_or_figure_to_stay_where_they_are%2C_instead_of_going_to_the_next_page%3F
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.95\linewidth]{4.3.1_sample-of-OnModelCreating.png}
-    \caption{Example of configuring the database tables generation by overriding the OnModelCreating method}
+    \caption{Example of configuring the database tables generation by overriding the \textit{OnModelCreating} method}
     \label{fig:enter-label}
 \end{figure}
 
-\par Furthermore, the defined DataContext class has to be registered to the application services by using the AddDbContext method. This also registers it for dependency injection so it can be used inside the service classes. This is also where the database provider is set up, which requires a method for registering it (which is usually provided by the package used for the database provider), UseSqlite() in this case, and a connection string.
+\par Furthermore, the defined \textit{DataContext} class has to be registered to the application services by using the \textit{AddDbContext} method. This also registers it for dependency injection so it can be used inside the service classes. This is also where the database provider is set up, which requires a method for registering it (which is usually provided by the package used for the database provider), \textit{UseSqlite} in this case, and a connection string.
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\linewidth]{4.3.1_AddDbContext.png}
-    \caption{Registering the DataContext class}
+    \caption{Registering the \textbf{DataContext} class}
     \label{fig:enter-label}
 \end{figure}
 
@@ -231,7 +231,7 @@
 
 \subsection{Reading from and writing to the database}
 
-\par Reading is done by directly accesing the DbSet fields of the DataContext class. For example, in Figure \ref{fig:database-read} at line 58 the contents of table of attraction types are accesed by the AttractionTypes field on the variable context, which is an instance of DataContext injected into the service. The contents can be further processed on the database side by using non-terminal operations, methods that return an instance of IQueryable, like Where, Include (which does join) and ProjectTo. Then, when awaiting the call to ToListAsync the processed query is peformed on the database.
+\par Reading is done by directly accessing the \textit{DbSet} fields of the \textit{DataContext} class. For example, in Figure \ref{fig:database-read} at line 58 the contents of table of attraction types are accessed by the AttractionTypes field on the variable context, which is an instance of \textit{DataContext} injected into the service. The contents can be further processed on the database side by using non-terminal operations, methods that return an instance of \textit{IQueryable}, like Where, Include (which does join) and \textit{ProjectTo}. Then, when awaiting the call to \textit{ToListAsync} the processed query is performed on the database.
 
 \begin{figure}[!ht]
     \centering
@@ -240,7 +240,7 @@
     \label{fig:database-read}
 \end{figure}
 
-\par Writing to the database is done in 2 steps: 1. calling Add/Remove (and derivatives like AddAsync or RemoveRange) on either the DbSet field or the DataContext instance, or by directly updating a domain class instance managed by the DataContext and which comes from a read operation and 2. by calling SaveChanges on the DataContext instances. An add example can be seen in Figure \ref{fig:automapper-usage} and an update example can be seen in Figure \ref{fig:database-write-update}
+\par Writing to the database is done in 2 steps: 1. calling \textit{Add}/\textit{Remove} (and derivatives like \textit{AddAsync} or \textit{RemoveRange}) on either the \textit{DbSet} field or the DataContext instance, or by directly updating a domain class instance managed by the DataContext and which comes from a read operation and 2. by calling \textit{SaveChanges} on the \textit{DataContext} instances. An add example can be seen in Figure \ref{fig:automapper-usage} and an update example can be seen in Figure \ref{fig:database-write-update}
 
 \begin{figure}[!ht]
     \centering
@@ -269,7 +269,7 @@
 
 \subsection{Dependency Injection}
 
-\par Dependency injection is achieved by specifying the needed classes as constructor parameters (\ref{fig:dependency-injection_usage}) and then registering those classes when the application is created (\ref{fig:dependency-injection_registering}). Here, they are registered using the AddScoped method, which registers their lifetime per HTTP request.
+\par Dependency injection is achieved by specifying the needed classes as constructor parameters (\ref{fig:dependency-injection_usage}) and then registering those classes when the application is created (\ref{fig:dependency-injection_registering}). Here, they are registered using the \textit{AddScoped} method, which registers their lifetime per HTTP request.
 
 
 \begin{figure}[!ht]
@@ -288,7 +288,7 @@
 
 \subsection{Error handling}
 
-\par When the Web API is created (in the entry point of the application - the Program.cs file) there are 2 things that are done. The first one is the registration of the services (Figure \ref{fig:exception-handling_registration} lines 18 - 28) and the second is the configuration of the HTTP request pipeline (Figure \ref{fig:exception-handling_registration} lines 33 - ...). The order in which the middlewares are configured is the order in which they are run. And, the reason the exception handling middleware is the  first in the pipeline (Figure \ref{fig:exception-handling_registration} line 33) is to catch any exception that occurs later in the pipeline. The purpose of the exception middleware is to have a single piece of code that handles what response is given, depending on the exception, to the initiator of the HTTP request. In this application, it changes the status code depending on the exception (Figure \ref{fig:exception-handling_middleware} lines 24 - 33), writes the validation errors to the body of the response (Figure \ref{fig:exception-handling_middleware}) line  33) and adds the stacktrace to the response only if the app is running in development mode.
+\par When the Web API is created (in the entry point of the application - the \textit{Program.cs} file) there are 2 things that are done. The first one is the registration of the services (Figure \ref{fig:exception-handling_registration} lines 18 - 28) and the second is the configuration of the HTTP request pipeline (Figure \ref{fig:exception-handling_registration} lines 33 - ...). The order in which the middlewares are configured is the order in which they are run. And, the reason the exception handling middleware is the  first in the pipeline (Figure \ref{fig:exception-handling_registration} line 33) is to catch any exception that occurs later in the pipeline. The purpose of the exception middleware is to have a single piece of code that handles what response is given, depending on the exception, to the initiator of the HTTP request. In this application, it changes the status code depending on the exception (Figure \ref{fig:exception-handling_middleware} lines 24 - 33), writes the validation errors to the body of the response (Figure \ref{fig:exception-handling_middleware}) line  33) and adds the stacktrace to the response only if the app is running in development mode.
 
 \begin{figure}
     \centering
