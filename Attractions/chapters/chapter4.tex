@@ -130,6 +130,7 @@
     \label{fig:enter-label}
 \end{figure}
 
+\clearpage % https://www.overleaf.com/learn/latex/Questions/How_can_I_get_my_table_or_figure_to_stay_where_they_are%2C_instead_of_going_to_the_next_page%3F
 
 \subsection{Diagrams}
 
@@ -183,12 +184,12 @@
 
 \subsection{ORM Mapping}
 
-\par Entity Framework was used to map the domain classes to the database tables. In order to achieve that, the domain classes have to be used as type parameters for fields of type \textit{DbSet} inside a class that inherits from the framework's class \textit{DbContext}. In this case the class is \textit{IdentityDbContext} because it offers user management features and it is also a descendant of the \textit{DbContext} class. This \textit{IdentityDbContext} class takes as type parameters a class used for mapping the user, a class used for mapping the user role and the type of the primary key used for those two.
+\par Entity Framework was used to map the domain classes to the database tables. In order to achieve that, the domain classes have to be used as type parameters for properties of type \textit{DbSet} inside a class that inherits from the framework's class \textit{DbContext}. In this case the class is \textit{IdentityDbContext} because it offers user management features and it is also a descendant of the \textit{DbContext} class. This \textit{IdentityDbContext} class takes as type parameters a class used for mapping the user, a class used for mapping the user role and the type of the primary key used for those two.
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\linewidth]{4.3.1_dataContext.png}
-    \caption{\textit{DataContext} class' fields}
+    \caption{\textit{DataContext} class' properties}
     \label{fig:enter-label}
 \end{figure}
 
@@ -245,7 +246,7 @@
 
 \subsection{Reading from and writing to the database}
 
-\par Reading is done by directly accessing the \textit{DbSet} fields of the \textit{DataContext} class. For example, in Figure \ref{fig:database-read} at line 58 the contents of table of attraction types are accessed by the AttractionTypes field on the variable context, which is an instance of \textit{DataContext} injected into the service. The contents can be further processed on the database side by using non-terminal operations, methods that return an instance of \textit{IQueryable}, like Where, Include (which does join) and \textit{ProjectTo}. Then, when awaiting the call to \textit{ToListAsync} the processed query is performed on the database.
+\par Reading is done by directly accessing the \textit{DbSet} properties of the \textit{DataContext} class. For example, in Figure \ref{fig:database-read} at line 58 the contents of table of attraction types are accessed by the AttractionTypes property on the variable context, which is an instance of \textit{DataContext} injected into the service. The contents can be further processed on the database side by using non-terminal operations, methods that return an instance of \textit{IQueryable}, like Where, Include (which does join) and \textit{ProjectTo}. Then, when awaiting the call to \textit{ToListAsync} the processed query is performed on the database.
 
 \begin{figure}[!ht]
     \centering
@@ -254,7 +255,7 @@
     \label{fig:database-read}
 \end{figure}
 
-\par Writing to the database is done in 2 steps: 1. calling \textit{Add}/\textit{Remove} (and derivatives like \textit{AddAsync} or \textit{RemoveRange}) on either the \textit{DbSet} field or the DataContext instance, or by directly updating a domain class instance managed by the DataContext and which comes from a read operation and 2. by calling \textit{SaveChanges} on the \textit{DataContext} instances. An add example can be seen in Figure \ref{fig:automapper-usage} and an update example can be seen in Figure \ref{fig:database-write-update}
+\par Writing to the database is done in 2 steps: 1. calling \textit{Add}/\textit{Remove} (and derivatives like \textit{AddAsync} or \textit{RemoveRange}) on either the \textit{DbSet} property or the DataContext instance, or by directly updating a domain class instance managed by the DataContext and which comes from a read operation and 2. by calling \textit{SaveChanges} on the \textit{DataContext} instances. An add example can be seen in Figure \ref{fig:automapper-usage} and an update example can be seen in Figure \ref{fig:database-write-update}
 
 \begin{figure}[!ht]
     \centering
