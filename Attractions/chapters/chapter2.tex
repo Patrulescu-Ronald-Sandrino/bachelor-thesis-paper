@@ -67,7 +67,17 @@ The steps involved in SDLC may differ from team to team but a common denominator
     \item Planning - involves analyzing the cost-benefit, scheduling, resource estimation and resource allocation. Requirements are gathered from decision makers involved in the project, experts and customers.
     \item Design - By analyzing the requirements gather in the step before and taking into consider the resources available, the team comes with the optimal solution that can fullfil the requirements. This comes in the form of diagrams, schemas, design documents and mockups.
     \item Implementation - the team "converts" the design results into code
-    \item Testing - 
-    \item Deployment - 
-    \item Maintenance - 
+    \item Testing - the team performs various types of testing, identifies and fixes bugs and makes sure the application meets the specified requirements
+    \item Deployment - packaging, environment configuration and installation are done on the client's environment (usually called \textit{production})
+    \item Maintenance - post-deployment monitoring, patching and improvement based on how well the software behaves and the experiences of its users. In this phase, one or more features of the software may go through the whole SDLC phase again.
 \end{enumerate}
+
+\par There are some known models that implement SDLC:
+
+\begin{itemize}
+    \item Waterfall - the design goes from one phase down to next, hence the name. Each phase depends on the result of the previous phase, sequentially, like non-threaded code. The advantage of it is that it has well-defined stages with clear outcomes for each phase. But the trade-off is that you're not meant to back on previously completed phases and make changes, which makes it inflexible. This model is suited for small projects.
+    \item Iterative - the software is built in iterations of small subsets of the requirements. This makes it easier to identify risks and problems and allows changes to be made at any stage. But, since iterations are short, it requires close collaboration with the client, which might not be always possible. It introduces complexity for managing and integrating all the iterations. Requirement changes can cause over budget and problems could arise in the system architecture since the set of requirements is not predefined.
+    \item Spiral - it is the combination of Waterfall and Spiral models with focus on risk analysis. So, the process goes multiple times through the phases. It is flexible and evaluations at each spiral loop help staying in touch with the goal. The downsides are that it requires complex documentation and management which lead to high costs so it's not fitting for small projects.
+    \item Agile - the development is split into short cycles that go quickly through each SDLC phase resulting in small changes at the end of each cycle. It allows changes at any stage, it provides frequent and early delivery and is continuously improved and refined through feedback from the customer. But it can lead to exaggerated scope changes and the scheduling and costs become less predictable. \cite{sdlc}
+\end{itemize}
+
